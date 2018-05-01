@@ -1,7 +1,15 @@
-from typing import Union
+from ipaddress import IPv4Address, IPv6Address
+from typing import List, Union
 
-IpAddress = Union[Ipv4Address, Ipv6Address]
-SocketAddr = (IpAddress, Port)
+import attr
+
+IpAddress = Union[IPv4Address, IPv6Address]
+
+
+@attr.s
+class SocketAddr:
+    ip = attr.ib(type=IpAddress)
+    port = attr.ib(type=Port)
 
 
 class Address:
