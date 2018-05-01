@@ -1,0 +1,13 @@
+sudo: false
+dist: trusty
+
+language: python
+
+install:
+- pip install -r tests/requirements.txt
+- pip install -e .
+
+script:
+- pytest
+
+cache: pip
