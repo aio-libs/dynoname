@@ -1,0 +1,14 @@
+containers:
+  alpine:
+    setup:
+    - !Alpine v3.7
+    - !Install [redis]
+    - !PipConfig { dependencies: true }
+    - !Py3Install [aioredis, pytest, pytest-asyncio]
+
+commands:
+  test: !Command
+    description: Run tests
+    container: alpine
+    run: [pytest]
+
