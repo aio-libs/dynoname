@@ -23,6 +23,12 @@ class Address:
         #
         return (new, old)
 
+    def __eq__(self, other: Address) -> bool:
+        if isinstance(other, Address):
+            return self._first_priority == other._first_pririty
+        else:
+            return NotImplemented
+
     @classmethod
     def from_getaddrinfo(list_of_addresses) -> Address:
         first_priority = []
